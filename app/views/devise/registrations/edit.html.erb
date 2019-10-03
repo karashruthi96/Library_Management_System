@@ -1,0 +1,69 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<form>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :Email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, value: resource.current_password %>
+  </div>
+
+  <% if resource.user_type=='librarian' %>
+    <div class="field">
+      <%=f.label :library %>
+      <% options = options_from_collection_for_select(Library.all, 'id', 'l_name') %>
+      <%= f.select :library_id,  options %>
+    </div>
+  <%end %>
+
+<%# --show only if user=librarian%>
+  <% if resource.user_type=='librarian'  %>
+  <div class="field">
+    <%= f.label :librarian_approved %><br />
+    <%= f.text_field :l_approved, default: 'false', value: resource.l_approved %>
+  </div>
+    <% end%>
+
+  <% if resource.user_type=='student'  %>
+  <div class="field">
+    <%= f.label :education_level_of_student %><br/>
+    <%= f.select(:s_education, options_for_select(['undergraduate','graduate','PhD']) , value: resource.s_education)  %>
+  </div>
+    <%end %>
+
+  <%# --hidden autopopulate based on education level%>
+
+  <% if resource.user_type=='student'  %>
+    <div class="field">
+      <%= f.label :max_number_of_days_student_can_borrow_book %><br />
+      <%= f.text_field :s_max , read_only: true , value: 10  %>
+    </div>
+  <%end %>
+
+  <div class="field">
+    <%= f.label :univ_name %><br />
+    <%= f.text_field :u_name, value: resource.u_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+
+</form>

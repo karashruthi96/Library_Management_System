@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.User %>
+</p>
+
+<p>
+  <strong>Books:</strong>
+  <%= @reservation.Books %>
+</p>
+
+<p>
+  <strong>T borrow:</strong>
+  <%= @reservation.t_borrow %>
+</p>
+
+<p>
+  <strong>D return:</strong>
+  <%= @reservation.d_return %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reservation.status %>
+</p>
+
+<p>
+  <strong>Bookmark:</strong>
+  <%= @reservation.bookmark %>
+</p>
+
+<p>
+  <strong>Fine total:</strong>
+  <%= @reservation.fine_total %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

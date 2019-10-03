@@ -1,0 +1,68 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :b_title %>
+    <%= form.text_field :b_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_author %>
+    <%= form.text_field :b_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_lang %>
+    <%= form.text_field :b_lang %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_pub %>
+    <%= form.datetime_select :b_pub %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_edition %>
+    <%= form.text_field :b_edition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_image %>
+    <%= form.text_area :b_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_subject %>
+    <%= form.text_field :b_subject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_summary %>
+    <%= form.text_area :b_summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_spl %>
+    <%= form.check_box :b_spl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Library_id %>
+    <% options = options_from_collection_for_select(Library.all, 'id', 'l_name') %>
+    <%= form.select :Library_id,  options %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

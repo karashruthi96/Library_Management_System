@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  User: one
+  Books: one
+  t_borrow: 2019-09-27 21:32:41
+  d_return: 2019-09-27 21:32:41
+  status: MyString
+  bookmark: false
+  fine_total: 1.5
+
+two:
+  User: two
+  Books: two
+  t_borrow: 2019-09-27 21:32:41
+  d_return: 2019-09-27 21:32:41
+  status: MyString
+  bookmark: false
+  fine_total: 1.5

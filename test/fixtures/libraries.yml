@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  l_name: MyString
+  l_location: MyString
+  l_max_days: 1
+  l_university: MyString
+  l_fine: 1.5
+
+two:
+  l_name: MyString
+  l_location: MyString
+  l_max_days: 1
+  l_university: MyString
+  l_fine: 1.5

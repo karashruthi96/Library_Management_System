@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>L name:</strong>
+  <%= @library.l_name %>
+</p>
+
+<p>
+  <strong>L location:</strong>
+  <%= @library.l_location %>
+</p>
+
+<p>
+  <strong>L max days:</strong>
+  <%= @library.l_max_days %>
+</p>
+
+<p>
+  <strong>L university:</strong>
+  <%= @library.l_university %>
+</p>
+
+<p>
+  <strong>L fine:</strong>
+  <%= @library.l_fine %>
+</p>
+
+<%= link_to 'Edit', edit_library_path(@library) %> |
+<%= link_to 'Back', libraries_path %>
