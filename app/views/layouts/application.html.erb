@@ -9,34 +9,28 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <style>
-  /*#content{*/
-  /*  text-align: center;*/
-  /*  padding-top: 10%;*/
-  /*}*/
 </style>
+<script>
+    function myFunction() {
+        alert("No such books found!");
+    }
+</script>
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <h1 class="display-4 text-center" href="#">NCSU Library Management System</h1>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-end">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <ul class="navbar-nav">
-    <li class="nav-item">
-
       <%if current_user %>
-        <li><%= link_to 'Sign out', destroy_user_session_path,class:"nav-link",style:"color: #F7F7F7", method: :delete %></li>
-<!--        <li><%#= link_to 'edit profile', edit_user_registration_path,class:"nav-link",style:"color: #F7F7F7" %></li>-->
-    </li>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <%= link_to 'Search', books_path, class: 'button alt' %>
-    </form>
+        <li><%= link_to 'Sign out', destroy_user_session_path,class:"nav-link",style:"color: #F7F7F7; ", method: :delete %></li>
     <%else %>
       <li><%= link_to 'Sign up', new_user_registration_path,class:"nav-link",style:"color: #F7F7F7" %></li>
       <li><%= link_to 'Sign in', new_user_session_path,class:"nav-link",style:"color: #F7F7F7" %></li>
 
     <%end%>
+
   </ul>
 </nav>
 
@@ -78,6 +72,7 @@
       </div>
     </div>
   <%end %>
+
   <div class="col col-lg-6" style="text-align: center">
     <%= yield %>
   </div>
