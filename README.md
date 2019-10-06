@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The deployed application consists of the following features:
 
-Things you may want to cover:
+Sign up
 
-* Ruby version
+Sign in
 
-* System dependencies
+View all books 
 
-* Configuration
+View all libraries
 
-* Database creation
+Edit user profile
 
-* Database initialization
 
-* How to run the test suite
+Our application consists of a single admin (currently) for which the details would be stored in the database initially. The users can sign up either as a librarian or a student and the attributes would be stored in the db. The guest user would be able to access the home page and be able to only view the list of available books and libraries. Once signed up, the new users would automatically be signed into the application dashboard and would be able to see additional tabs like editing his/her profiles.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Depending on the type of user, only particular fields would be displayed depending on whether it is a student or a librarian while signing up. For eg, a librarian would be able to fill in library details while a student would be asked for something like ‘level of education’
 
-* ...
+
+Following are the features developed for each type of user:
+
+
+A Student:
+
+Can edit his profile information
+
+View list of available books
+
+View list of libraries
+
+
+A Librarian:
+
+      1.	Can edit his profile information
+
+      2. 	View books
+
+      3. 	View Libraries
+
+
+No features developed for admin
