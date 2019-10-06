@@ -41,17 +41,24 @@
       <div class="col col-lg-2">
         <div id="list-example" class="list-group">
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
-          <a> <%= link_to 'View Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View books', books_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
-<!--          <a class="" href="#list-item-4">Item 4</a>-->
+
+          <a> <%= link_to 'View books and Checkout', books_path, class: 'list-group-item list-group-item-action' %></a>
+
+          <!--          <a class="" href="#list-item-4">Item 4</a>-->
         </div>
       </div>
     <%elsif current_user.user_type =="librarian" %>
       <div class="col col-lg-2">
         <div id="list-example" class="list-group">
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
-          <a> <%= link_to 'View all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View/Edit all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'Add/remove books-Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View/Edit Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View book hold requests in my library' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View checkout books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'Borrowing history of books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
         </div>
       </div>
     <%else%>
@@ -60,14 +67,18 @@
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
           <a><%= link_to 'Add New Book', new_book_path,class:"list-group-item list-group-item-action" %></a>
           <a> <%= link_to 'View all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View/Modify Users',dashboard_url(1), class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'Modify Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View book hold requests' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View checkout books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'Borrowing history of books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
         </div>
       </div>
     <%end%>
   <%else %>
     <div class="col col-lg-2">
       <div id="list-example" class="list-group">
-        <a> <%= link_to 'View all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+        <a> <%= link_to 'View all books', books_path, class: 'list-group-item list-group-item-action' %></a>
         <a> <%= link_to 'View all Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
       </div>
     </div>
@@ -77,14 +88,6 @@
     <%= yield %>
   </div>
 </div>
-
-<!--  <div class="col col-lg-4" >-->
-
-<!--  </div>-->
-<!--</div>-->
-
-
-
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

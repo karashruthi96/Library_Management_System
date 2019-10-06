@@ -7,12 +7,12 @@ class BooksTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit books_url
-    assert_selector "h1", text: "Books"
+    assert_selector "h1", text: "books"
   end
 
-  test "creating a Book" do
+  test "creating a books" do
     visit books_url
-    click_on "New Book"
+    click_on "New books"
 
     fill_in "Library", with: @book.Library_id
     fill_in "B author", with: @book.b_author
@@ -24,13 +24,13 @@ class BooksTest < ApplicationSystemTestCase
     fill_in "B subject", with: @book.b_subject
     fill_in "B summary", with: @book.b_summary
     fill_in "B title", with: @book.b_title
-    click_on "Create Book"
+    click_on "Create books"
 
-    assert_text "Book was successfully created"
+    assert_text "books was successfully created"
     click_on "Back"
   end
 
-  test "updating a Book" do
+  test "updating a books" do
     visit books_url
     click_on "Edit", match: :first
 
@@ -44,18 +44,18 @@ class BooksTest < ApplicationSystemTestCase
     fill_in "B subject", with: @book.b_subject
     fill_in "B summary", with: @book.b_summary
     fill_in "B title", with: @book.b_title
-    click_on "Update Book"
+    click_on "Update books"
 
-    assert_text "Book was successfully updated"
+    assert_text "books was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Book" do
+  test "destroying a books" do
     visit books_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Book was successfully destroyed"
+    assert_text "books was successfully destroyed"
   end
 end

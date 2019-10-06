@@ -17,4 +17,4 @@ class Book < ApplicationRecord
     where("b_pub LIKE ?", "%#{search}%")
   end
 
-end
+

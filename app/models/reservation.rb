@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
   belongs_to :User
-  belongs_to :Books
+  belongs_to :Book, optional: true
 end

@@ -19,20 +19,37 @@ book_list = [
 ", false, 1 ,"November 10, 1994", "November 10, 1994"]
 ]
 
-user_list=[
-    ["admin@admin.com","admin","admin","November 10, 1994","November 10, 1994", "November 10, 2004","admin", "NCSU",nil,nil,nil,nil],
-    ["lib1@hil.com","lib","admin","October 10, 1999","November 10, 1999", "November 10, 2004","librarian", "NCSU",2,true,nil,nil],
-    ["student1@nc.com","student","admin","April 10, 2017","April 10, 2017", "April 10, 2017","student", "NCSU",nil,nil,"grad",14]
-]
+# user_list=[
+#     ["admin@admin.com","admin","admin","November 10, 1994","November 10, 1994", "November 10, 2004","November 10, 1994","admin", "NCSU",nil,nil,nil,nil],
+#     ["lib1@hil.com","lib","admin","October 10, 1999","October 10, 1999","November 10, 1999", "November 10, 2004","librarian", "NCSU",2,true,nil,nil],
+#     ["student1@nc.com","student","admin","April 10, 2017","October 10, 1999","April 10, 2017", "April 10, 2017","student", "NCSU",nil,nil,"grad",14]
+# ]
 
 library_list.each do |name, location, max_days, university, fine, created, updated|
   Library.create( l_name: name, l_location: location ,l_max_days:max_days ,l_university:university, l_fine:fine ,created_at:created ,updated_at:updated )
 end
 
 book_list.each do |b_title, b_author ,b_lang ,b_pub ,b_edition ,b_image ,b_subject ,b_summary ,b_spl ,index_books_on_Library_id ,created_at,updated_at|
-  Book.create(b_title: b_title, b_author: b_author ,b_lang: b_lang ,b_pub: b_pub ,b_edition: b_edition,b_image: b_image ,b_subject: b_subject ,b_summary: b_summary ,b_spl: b_spl ,Library_id: index_books_on_Library_id ,created_at: created_at,updated_at: updated_at)
+  Book.create(b_title: b_title, b_author: b_author , b_lang: b_lang , b_pub: b_pub , b_edition: b_edition, b_image: b_image , b_subject: b_subject , b_summary: b_summary , b_spl: b_spl, available: true , Library_id: index_books_on_Library_id , created_at: created_at, updated_at: updated_at)
 end
 
-user_list.each do |email,encrypted_password,reset_password_token,remember_created_at,created_at, updated_at,user_type, u_name,library_id,l_approved,s_education,s_max|
-  User.create(email:email ,encrypted_password:encrypted_password,reset_password_token: reset_password_token,remember_created_at: remember_created_at,created_at: created_at, updated_at: updated_at,user_type: user_type, u_name:u_name,library_id:library_id,l_approved:l_approved,s_education:s_education,s_max:s_max)
-end
+User.create!({email:"admin@admin.com",password:"admin123",reset_password_token:nil,reset_password_sent_at:'20120618 10:34:09 AM',remember_created_at:'20120618 10:34:09 AM',created_at:'20120618 10:34:09 AM',updated_at: '20120618 10:34:09 AM',user_type: "admin",u_name:"NCSU",library_id:1,l_approved:true,s_education:"graduate",s_max:10})
+
+
+# user_list.each do |email,encrypted_password,reset_password_token,reset_password_sent_at,remember_created_at,created_at, updated_at,user_type, u_name,library_id,l_approved,s_education,s_max|
+#   User.create(
+#       email:email ,
+#       encrypted_password:encrypted_password,
+#       reset_password_token: reset_password_token,
+#       reset_password_sent_at:reset_password_sent_at,
+#       remember_created_at: remember_created_at,
+#       created_at: created_at,
+#       updated_at: updated_at,
+#       user_type: user_type,
+#       u_name:u_name,
+#       library_id:library_id,
+#       l_approved:l_approved,
+#       s_education:s_education,
+#       s_max:s_max)
+# end
+#
