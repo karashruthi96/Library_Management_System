@@ -14,7 +14,7 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservations_url
     click_on "New Reservation"
 
-    fill_in "Books", with: @reservation.Books_id
+    fill_in "books", with: @reservation.Books_id
     fill_in "User", with: @reservation.User_id
     check "Bookmark" if @reservation.bookmark
     fill_in "D return", with: @reservation.d_return
@@ -31,7 +31,7 @@ class ReservationsTest < ApplicationSystemTestCase
     visit reservations_url
     click_on "Edit", match: :first
 
-    fill_in "Books", with: @reservation.Books_id
+    fill_in "books", with: @reservation.Books_id
     fill_in "User", with: @reservation.User_id
     check "Bookmark" if @reservation.bookmark
     fill_in "D return", with: @reservation.d_return

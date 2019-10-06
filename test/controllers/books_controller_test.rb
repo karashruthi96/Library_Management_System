@@ -16,7 +16,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create book" do
-    assert_difference('Book.count') do
+    assert_difference('books.count') do
       post books_url, params: { book: { Library_id: @book.Library_id, b_author: @book.b_author, b_edition: @book.b_edition, b_image: @book.b_image, b_lang: @book.b_lang, b_pub: @book.b_pub, b_spl: @book.b_spl, b_subject: @book.b_subject, b_summary: @book.b_summary, b_title: @book.b_title } }
     end
 
@@ -39,7 +39,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy book" do
-    assert_difference('Book.count', -1) do
+    assert_difference('books.count', -1) do
       delete book_url(@book)
     end
 

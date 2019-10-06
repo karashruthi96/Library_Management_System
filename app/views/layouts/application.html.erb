@@ -47,8 +47,12 @@
       <div class="col col-lg-2">
         <div id="list-example" class="list-group">
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
-          <a> <%= link_to 'View Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'View books', books_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+
+          <a> <%= link_to 'View books and Checkout', books_path, class: 'list-group-item list-group-item-action' %></a>
+
+          <!--          <a class="" href="#list-item-4">Item 4</a>-->
         </div>
       </div>
     <%elsif current_user.user_type =="librarian" %>
@@ -80,7 +84,7 @@
   <%else %>
     <div class="col col-lg-2">
       <div id="list-example" class="list-group">
-        <a> <%= link_to 'View all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
+        <a> <%= link_to 'View all books', books_path, class: 'list-group-item list-group-item-action' %></a>
         <a> <%= link_to 'View all Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
       </div>
     </div>

@@ -30,7 +30,7 @@ library_list.each do |name, location, max_days, university, fine, created, updat
 end
 
 book_list.each do |b_title, b_author ,b_lang ,b_pub ,b_edition ,b_image ,b_subject ,b_summary ,b_spl ,index_books_on_Library_id ,created_at,updated_at|
-  Book.create(b_title: b_title, b_author: b_author ,b_lang: b_lang ,b_pub: b_pub ,b_edition: b_edition,b_image: b_image ,b_subject: b_subject ,b_summary: b_summary ,b_spl: b_spl ,Library_id: index_books_on_Library_id ,created_at: created_at,updated_at: updated_at)
+  Book.create(b_title: b_title, b_author: b_author , b_lang: b_lang , b_pub: b_pub , b_edition: b_edition, b_image: b_image , b_subject: b_subject , b_summary: b_summary , b_spl: b_spl, available: true , Library_id: index_books_on_Library_id , created_at: created_at, updated_at: updated_at)
 end
 
 User.create!({email:"admin@admin.com",password:"admin123",reset_password_token:nil,reset_password_sent_at:'20120618 10:34:09 AM',remember_created_at:'20120618 10:34:09 AM',created_at:'20120618 10:34:09 AM',updated_at: '20120618 10:34:09 AM',user_type: "admin",u_name:"NCSU",library_id:1,l_approved:true,s_education:"graduate",s_max:10})

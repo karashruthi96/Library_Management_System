@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   resources :reservations
-  resources :books
+  resources :books do
+    member do
+      post "checkout" => "books#checkout"
+    end
+  end
   resources :libraries
-   root to: 'dashboard#home'
+  resources :books do member do post :checkout end end
+  root to: 'dashboard#home'
   devise_for :users
   resources :dashboard do
     member do
