@@ -1,5 +1,58 @@
 <p id="notice"><%= notice %></p>
 
+<%if current_user %>
+
+<!--  <form class="form-inline my-2 my-lg-0 pull-left"c style="padding-top: 3.5%">-->
+    <% if current_page?(:controller => 'books', :action => 'index') %>
+      Search by: &nbsp;<br>
+      Title:
+      <%= form_tag(books_path, :method => "get", id: "search-title") do %>
+        <%= text_field_tag :search_title, params[:search_title], placeholder: "Search Book by title" %> &nbsp;
+        <%= submit_tag "Search" ,name:nil ,class:'btn btn-primary' %>
+      <% end %>
+      <% if @books.present? %>
+        <p></p>
+      <%else %>
+        <%= javascript_tag "myFunction()"%>
+      <%end %>
+
+    Author:
+    <%= form_tag(books_path, :method => "get", id: "search-author") do %>
+      <%= text_field_tag :search_author, params[:search_author], placeholder: "Search Book by author" %> &nbsp;
+      <%= submit_tag "Search" ,name:nil ,class:'btn btn-primary' %>
+    <% end %>
+    <% if @books.present? %>
+      <p></p>
+    <%else %>
+      <%= javascript_tag "myFunction()"%>
+    <%end %>
+
+    Subject:
+    <%= form_tag(books_path, :method => "get", id: "search-sub") do %>
+      <%= text_field_tag :search_sub, params[:search_sub], placeholder: "Search Book by subject" %> &nbsp;
+      <%= submit_tag "Search" ,name:nil ,class:'btn btn-primary' %>
+    <% end %>
+    <% if @books.present? %>
+      <p></p>
+    <%else %>
+      <%= javascript_tag "myFunction()"%>
+    <%end %>
+
+    Publication:
+    <%= form_tag(books_path, :method => "get", id: "search-pub") do %>
+      <%= text_field_tag :search_pub, params[:search_pub], placeholder: "Search Book by Publication" %> &nbsp;
+      <%= submit_tag "Search" ,name:nil ,class:'btn btn-primary' %>
+    <% end %>
+    <% if @books.present? %>
+      <p></p>
+    <%else %>
+      <%= javascript_tag "myFunction()"%>
+    <%end %>
+
+    <%end %>
+
+<!--  </form>-->
+<%end %>
 <strong><h1 class="display-4">Books</h1></strong>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

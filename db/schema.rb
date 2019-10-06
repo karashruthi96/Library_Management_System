@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_021704) do
 
   create_table "libraries", force: :cascade do |t|
     t.string "l_name"
-    t.string "l_location"
+    t.string "l_location  "
     t.integer "l_max_days"
     t.string "l_university"
     t.float "l_fine"
