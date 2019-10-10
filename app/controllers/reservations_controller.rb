@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  # respond_to :html, :json
 
   # GET /reservations
   # GET /reservations.json
@@ -49,6 +50,32 @@ class ReservationsController < ApplicationController
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def unhold
+      @book=Book.find_by_id(params[:format])
+      @reservation=Reservation.find_by_id(params[:id])
+      @reservation.destroy
+              redirect_to @book, alert: 'hold was successfully cancelled.'
+  end
+
+  def unbookmark
+    @book=Book.find_by_id(params[:id])
+    @reservation=Reservation.find_by_id( params[:type])
+    @reservation.destroy
+      redirect_to @book, alert: 'bookmark was successfully cancelled.'
+  end
+
+  def bookmark
+    @book=Book.find_by_id(params[:id])
+    reservation_params={:User_id=> current_user.id, :Books_id=> @book.id, :t_borrow=>nil , :d_return=>nil, :status=>'bookmarked', :bookmark=>true, :fine_total=>0, :created_at=>Time.now,:updated_at=>Time.now}
+    @reservation= Reservation.new(reservation_params)
+    if @reservation.save
+    end
+  end
+
+  def bookmark_show
+    render '/bookmark'
   end
 
   # DELETE /reservations/1

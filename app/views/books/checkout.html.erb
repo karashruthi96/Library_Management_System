@@ -2,4 +2,33 @@
 
 <h2>checking out book</h2>
 
-<%= link_to 'Checkout',checkout_book_url(@book) ,:method => "post"%>
+<p id="notice"><%= notice %></p>
+<strong><h1 class="display-4"><%= @book.b_title %></h1></strong>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<div class="container col col-lg">
+  <table class="container table table-bordered">
+    <tbody>
+    <tr>
+      <td scope="row">
+        <%= image_tag @book.b_image, :alt => 'book_image' %>
+      </td>
+      <td scope="col-lg">
+        <p><strong>Title:</strong><%= @book.b_title%></br></p>
+        <p><strong>Author:</strong><%= @book.b_author %></br></p>
+        <p><strong>Language:</strong><%= @book.b_lang %></br></p>
+        <p><strong>Publication:</strong> <%= @book.b_pub %></br></p>
+        <p><strong>Edition:</strong><%= @book.b_edition %></br></p>
+        <p><strong>Subject:</strong><%= @book.b_subject %></br></p>
+        <p><strong>Summary:</strong><%= @book.b_summary %></br></p>
+        <p><strong>Is Special Collection:</strong><%= @book.b_spl %></br></p>
+        <p>strong>Available in Library:</pstrong><%= @book.Library_id%></br></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </table>
+</div>
+<%= link_to 'Checkout',checkout_book_url(@book) ,:method => "post"   %>  |
+<%= link_to 'Edit', edit_book_path(@book) %>  |
+<%= link_to 'Back', books_path %>

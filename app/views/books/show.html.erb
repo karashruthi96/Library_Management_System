@@ -10,7 +10,13 @@
         <%= image_tag @book.b_image, :alt => 'book_image' %>
       </td>
       <td scope="col-lg">
-          <p><strong>Title:</strong><%= @book.b_title%></br></p>
+        <% if Reservation.where(:User_id => current_user.id, :Books_id => @book.id , :bookmark => true ).exists?
+              @reservation= Reservation.where(:User_id => current_user.id, :Books_id => @book.id , :bookmark => true ).first %>
+          <%= link_to 'UnBookmark',unbookmark_reservation_url(@book, :type => @reservation) %>
+        <%else %>
+          <%= link_to 'Bookmark',bookmark_reservation_url(@book) %>
+          <%end %>
+        <p><strong>Title:</strong><%= @book.b_title%></br></p>
           <p><strong>Author:</strong><%= @book.b_author %></br></p>
           <p><strong>Language:</strong><%= @book.b_lang %></br></p>
           <p><strong>Publication:</strong> <%= @book.b_pub %></br></p>
@@ -24,6 +30,4 @@
     </tbody>
   </table>
 </div>
-<%= link_to 'Checkout',checkout_book_url(@book) ,:method => "post"   %>  |
-<%= link_to 'Edit', edit_book_path(@book) %>  |
-<%= link_to 'Back', books_path %>
+<%= render 'reservation', book: @book %>
