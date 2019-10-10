@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_021704) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "User_id"
-    t.integer "Books_id"
+    t.integer "Book_id"
     t.datetime "t_borrow"
     t.datetime "d_return"
     t.string "status"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_021704) do
     t.float "fine_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Books_id"], name: "index_reservations_on_Books_id"
+    t.index ["Book_id"], name: "index_reservations_on_Book_id"
     t.index ["User_id"], name: "index_reservations_on_User_id"
   end
 
