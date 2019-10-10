@@ -1,4 +1,7 @@
 # README
+The login credentials for admin are: admin@admin.com and 
+                         password is admin123
+
 
 The deployed application consists of the following features:
 
@@ -40,4 +43,4 @@ A Librarian:
       3. 	View Libraries
 
 
-No features developed for admin
+
