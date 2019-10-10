@@ -58,7 +58,8 @@
 
   <div class="field">
     <%= form.label :Library_id %>
-    <% options = options_from_collection_for_select(Library.all, 'id', 'l_name') %>
+    <% options = options_from_collection_for_select(Library.all, 'id', 'l_name',3) %>
+
     <%= form.select :Library_id,  options %>
   </div>
 

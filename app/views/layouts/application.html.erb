@@ -55,19 +55,19 @@
           <!--          <a class="" href="#list-item-4">Item 4</a>-->
         </div>
       </div>
-    <%elsif current_user.user_type =="librarian" %>
+    <%elsif current_user.user_type =="librarian" and current_user.l_approved == true %>
       <div class="col col-lg-2">
         <div id="list-example" class="list-group">
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
           <a> <%= link_to 'View/Edit all Books', books_path, class: 'list-group-item list-group-item-action' %></a>
-          <a> <%= link_to 'Add/remove books-Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'Add/remove books-Libraries' , "/addremove", class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View/Edit Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View book hold requests in my library' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View checkout books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'Borrowing history of books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
         </div>
       </div>
-    <%else%>
+    <%elsif current_user.user_type == "admin" %>
       <div class="col col-lg-2">
         <div id="list-example" class="list-group">
           <a> <%= link_to 'Edit my Profile', edit_user_registration_path,class:"list-group-item list-group-item-action"%></a>
@@ -77,6 +77,7 @@
           <a> <%= link_to 'Modify Libraries' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View book hold requests' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'View checkout books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
+          <a> <%= link_to 'Pending Librarian approvals' ,Lib_approvals_url(1), class: 'list-group-item list-group-item-action' %></a>
           <a> <%= link_to 'Borrowing history of books' , libraries_path, class: 'list-group-item list-group-item-action' %></a>
         </div>
       </div>
@@ -93,6 +94,7 @@
     <%= yield %>
   </div>
 </div>
+
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

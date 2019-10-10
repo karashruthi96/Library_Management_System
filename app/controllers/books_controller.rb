@@ -74,7 +74,9 @@ class BooksController < ApplicationController
       end
     end
   end
-
+  def addremove
+    @book = Book.all
+  end
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy

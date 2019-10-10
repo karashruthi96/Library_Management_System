@@ -1,0 +1,61 @@
+<form>
+  <%#= form_for(resource as: resource_name, url: "update.#{@edit_user.id}" , id: @edit_user,  html: { method: :put }) do |f| %>
+  <%=form_with url:"update.#{@edit_user.id}", method: :put do |f| %>
+  <%= render "devise/shared/error_messages", resource: @edit_user %>
+
+    <div class="form-group">
+      <%= f.label :Email %><br />
+      <%= f.email_field :email, value: @edit_user.email,autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, value: @edit_user.current_password %>
+    </div>
+
+    <% if @edit_user.user_type=='librarian' %>
+      <div class="field">
+        <%=f.label :library %>
+        <% options = options_from_collection_for_select(Library.all, 'id', 'l_name') %>
+        <%= f.select :library_id,  options %>
+      </div>
+    <%end %>
+
+    <% if @edit_user.user_type=='librarian'  %>
+      <div class="field">
+        <%= f.label :librarian_approved %><br />
+        <%= f.text_field :l_approved, default: 'false', value: @edit_user.l_approved %>
+      </div>
+    <% end%>
+
+    <% if @edit_user.user_type=='student'  %>
+      <div class="field">
+        <%= f.label :education_level_of_student %><br/>
+        <%= f.select(:s_education, options_for_select(['undergraduate','graduate','PhD']) , value: @edit_user.s_education)  %>
+      </div>
+    <%end %>
+
+    <% if @edit_user.user_type=='student' %>
+      <div class="field">
+        <%= f.label :max_number_of_days_student_can_borrow_book %><br />
+        <%= f.text_field :s_max , read_only: true , value: 10  %>
+      </div>
+    <%end %>
+
+    <div class="field">
+      <%= f.label :univ_name %><br />
+      <%= f.text_field :u_name, value: @edit_user.u_name %>
+    </div>
+
+    <div class="actions">
+<!--      <button><%#= link_to "Update",update_path(@edit_user.id) %></button>-->
+      <button><%= link_to "Update","update.#{@edit_user.id}" %></button>
+    </div>
+<!--      <div class="actions">-->
+<!--       <button> <%#= f.submit "Update" %> </button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <%= link_to "Back", dashboard_url(1) %>
+  <%end %>
+</form>

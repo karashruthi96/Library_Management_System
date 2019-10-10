@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<!--<strong><h1 class="display-4">USER INFO</h1></strong>-->
+<%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<!--<p class="container col col-lg">-->
+<!--  <table class="container table table-bordered">-->
+<!--    <tbody>-->
+<!--    <tr>-->
+      <p><%= @users.email %></br></p>
+      <p><%= @users.reset_password_sent_at %></br></p>
+      <p><%= @users.remember_created_at %></br></p>
+      <p><%= @users.created_at %></br></p>
+      <p><%= @users.updated_at %></br></p>
+      <p><%= @users.user_type %></br></p>
+      <p><%= @users.u_name %></br></p>
+      <%if(@users.library_id.to_i !=0) %>
+      <p><%= Library.find(@users.library_id.to_i).l_name %></br></p>
+      <%else%>
+
+      <%end %>
+      <p><%= @users.l_approved %></br></p>
+      <p><%= @users.s_education %></br></p>
+      <p><%= @users.s_max %></br></p>
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+<%= link_to 'Delete', "deleteuser.#{@users.id}" %>
+<%= link_to 'Edit', "edit.#{@users.id}" %>
+<%#= link_to 'Destroy', :onclick=>User.destroy(@users.id) %>

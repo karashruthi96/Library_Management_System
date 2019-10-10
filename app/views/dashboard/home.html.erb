@@ -14,9 +14,16 @@
   }
 </style>
 <body>
+<%if current_user && current_user.user_type == "librarian" and current_user.l_approved == nil%>
+  <div id="main_content">
+   Welcome!!
+    Please wait for the admin's approval!!
+  </div>
+  <%else %>
 <div id="main_content">
   Hello and welcome to Dynamic Library Management System.
 </div>
+  <%end%>
 <!--<p style="padding-left: 20%">For navigating click on the links at the side or try signing in.</p>-->
 </body>
 </html>

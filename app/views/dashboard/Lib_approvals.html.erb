@@ -1,0 +1,51 @@
+
+<p id="notice"><%= notice %></p>
+<strong><h1 class="display-4">USERS</h1></strong>
+<% lib = User.all.where(user_type:'librarian').where(l_approved:nil) %>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%if lib.all.count!=0 %>
+<div class="container col col-lg">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">EMAIL</th>
+      <th scope="col">CREATED AT</th>
+      <th scope="col">UPDATED AT</th>
+      <th scope="col">USER TYPE</th>
+      <th scope="col">UNIVERSITY NAME</th>
+      <th scope="col">LIBRARY ID</th>
+      <th scope="col">LIBRARIAN APPROVED</th>
+<!--      <th colspan="3"></th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <% @lib.each do |user| %>
+      <tr>
+        <td scope="row"><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
+        <td><%= user.user_type %></td>
+        <td><%= user.u_name %></td>
+        <%if(user.library_id.to_i !=0) %>
+        <td><%= Library.find(user.library_id.to_i).l_name %></td>
+        <%end %>
+        <td><%= user.l_approved %></td>
+        <%if !user.l_approved %>
+        <td><%= link_to 'Approve',User.update({email:user.email,encrypted_password: user.encrypted_password,reset_password_token:user.reset_password_token,reset_password_sent_at:user.reset_password_sent_at,remember_created_at:user.remember_created_at,created_at:user.created_at,updated_at: user.updated_at,user_type: user.user_type,u_name:user.u_name,library_id:user.library_id,l_approved:true,s_education:user.s_education,s_max:user.s_max}) && Lib_approvals_url(1) ,class: 'list-group-item list-group-item-action' %></td>
+        <%else %>
+          <td>Approved</td>
+        <%end %>
+      </tr>
+    <% end %>
+    </tbody>s
+  </table>
+</div>
+<%else %>
+  <div id="main_content">
+   No pending approvals
+  </div>
+<%end %>
+
+

@@ -5,6 +5,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>ID</th>
       <th>NAME</th>
       <th>LOCATION</th>
       <th>MAX BORROWAL PERIOD</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @libraries.each do |library| %>
       <tr>
+        <td><%= library.id %></td>
         <td><%= library.l_name %></td>
         <td><%= library.l_location %></td>
         <td><%= library.l_max_days %></td>

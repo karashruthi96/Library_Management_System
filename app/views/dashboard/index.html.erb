@@ -14,7 +14,7 @@
       <th scope="col">CREATED AT</th>
       <th scope="col">UPDATED AT</th>
       <th scope="col">USER TYPE</th>
-      <th scope="col">USER NAME</th>
+      <th scope="col">UNIVERSITY NAME</th>
       <th scope="col">LIBRARY ID</th>
       <th scope="col">LIBRARIAN APPROVED</th>
       <th scope="col">EDUCATION LEVEL</th>
@@ -23,21 +23,31 @@
     </tr>
     </thead>
     <tbody>
-    <% @users.each do |user| %>
+    <% @user.each do |userst| %>
       <tr>
-        <td scope="row"><%= user.email %></td>
-        <td><%= user.reset_password_sent_at %></td>
-        <td><%= user.remember_created_at %></td>
-        <td><%= user.created_at %></td>
-        <td><%= user.updated_at %></td>
-        <td><%= user.user_type %></td>
-        <td><%= user.u_name %></td>
-        <td><%= Library.find(user.library_id.to_i).l_name %></td>
-        <td><%= user.l_approved %></td>
-        <td><%= user.s_education %></td>
-        <td><%= user.s_max %></td>
-        <td><%= link_to 'Edit', edit_registration_path(user) %></td>
-        <td><%= link_to 'Destroy', registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td scope="row"><%= userst.email %></td>
+        <td><%= userst.id %></td>
+        <td><%= userst.reset_password_sent_at %></td>
+        <td><%= userst.remember_created_at %></td>
+        <td><%= userst.created_at %></td>
+        <td><%= userst.updated_at %></td>
+        <td><%= userst.user_type %></td>
+        <td><%= userst.u_name %></td>
+        <%if(userst.library_id != nil && userst.library_id.to_i >0 ) %>
+        <td><%= Library.find(userst.library_id.to_i).l_name %></td>
+        <%else%>
+          <td></td>
+        <%end %>
+        <td><%= userst.l_approved %></td>
+        <td><%= userst.s_education %></td>
+        <td><%= userst.s_max %></td>
+<!--        <td><%#= link_to 'Edit', edit_user_registration_path(userst) %></td>-->
+<!--<td><%#=link_to 'destroy -try',id:userst.id,:onclick =>User.destroy(:id) && dashboard_url(1) %></td>-->
+<!--        <td><%#= link_to 'Destroy',:onclick => @user.delete(userst.id) %></td>-->
+<!--        <td><a href="/users/edit(userst.id)">Edit</a></td>-->
+<!--        <td><%#=link_to 'destroy -try',controller: "devise/registration",action: "destroy", :method =>'delete' %></td>-->-->
+<!--        <td><%#=link_to "delete",action:"devise/registration#destroy",method: :delete %></td>-->
+        <td><%= link_to 'show',"/users.#{userst.id}",method: :get %></td>
       </tr>
     <% end %>
     </tbody>
