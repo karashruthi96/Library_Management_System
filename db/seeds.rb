@@ -9,8 +9,7 @@
 library_list = [
     [1,"hunt", "Nc state", 14 ,"NCSU", 10,"2009-09-29 16:50:54", "2019-09-29 16:50:54" ],
     [2,"hill", "Nc state", 21 ,"NCSU", 5,"2009-09-29 16:50:54", "2019-09-29 16:50:54" ],
-    [3,"none", "Nc state", 1 ,"NCSU", 1,"2009-09-29 16:50:54", "2019-09-29 16:50:54" ],
-]
+    [3,"none", "Nc state", 1 ,"NCSU", 1,"2009-09-29 16:50:54", "2019-09-29 16:50:54" ],]
 
 book_list = [
     ["12 Rules For Life: An Antidote To Chaos", "Jordan B. Peterson" ,"English" ,"Random House Canada" ,2.4 ,"https://lh3.googleusercontent.com/hybLSyBKneLPX9jMU759oUVHE7W77-4bMonNoDVrlbNJW-1hxtemk54gkUHdWlFYOLOxIYov2MggOR8=s200-rw" ,"philosophy" ,"What does everyone in the modern world need to know? Renowned psychologist Jordan B. Peterson's answer to this most difficult of questions uniquely combines the hard-won truths of ancient tradition with the stunning revelations of cutting-edge scientific research.
@@ -33,5 +32,6 @@ User.create!({email:"admin@admin.com",password:"admin123",reset_password_token:n
 User.create!({email:"st1@ncsu.com",password:"123456",reset_password_token:nil,reset_password_sent_at:'20120618 10:34:09 AM',remember_created_at:'20120618 10:34:09 AM',created_at:'20120618 10:34:09 AM',updated_at: '20120618 10:34:09 AM',user_type: "student",u_name:"NCSU",library_id:nil,l_approved:nil,s_education:"graduate",s_max:10})
 User.create!({email:"st2@ncsu.com",password:"123456",reset_password_token:nil,reset_password_sent_at:'20120618 10:34:09 AM',remember_created_at:'20120618 10:34:09 AM',created_at:'20120618 10:34:09 AM',updated_at: '20120618 10:34:09 AM',user_type: "student",u_name:"NCSU",library_id:nil,l_approved:nil ,s_education:"graduate",s_max:10})
 User.create!({email:"lib@ncsu.com",password:"123456",reset_password_token:nil,reset_password_sent_at:'20120618 10:34:09 AM',remember_created_at:'20120618 10:34:09 AM',created_at:'20120618 10:34:09 AM',updated_at: '20120618 10:34:09 AM',user_type: "librarian",u_name:"NCSU",library_id:nil,l_approved:nil,s_education:"graduate",s_max:10})
+
 
 

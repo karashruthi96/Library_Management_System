@@ -15,14 +15,10 @@ class Book < ApplicationRecord
 
   def update_reserve(reservation_params)
     @reservation=Reservation.update(reservation_params)
-    respond_to do |format|
     if @reservation.update(reservation_params)
-      format.html { redirect_to @book, notice: 'Reservation was successfully created.' }
-      format.json { render :show, status: :created, location: @book }
+      true
     else
-      format.html { render :new }
-      format.json { render json: @book.errors, status: :unprocessable_entity }
-    end
+      false
     end
     end
 end

@@ -1,0 +1,19 @@
+
+  <%= if @book.available == true
+        link_to 'Checkout',checkout_book_url(@book) ,:method => "post"
+      else
+        if Reservation.where(:User_id=> current_user.id,:Books_id => @book.id,:status=> 'hold').exists?
+          @reservation=Reservation.where(:User_id=> current_user.id,:Books_id => @book.id,:status=> 'hold').first.id
+          link_to 'UnHold',unhold_reservation_url(@reservation, @book), data: { confirm: 'Are you sure to unhold?' }
+        else
+          link_to 'Hold',hold_book_url(@book) 
+        end
+      end %>
+|
+  <%= if (Reservation.where(User_id: current_user.id,Books_id: @book.id,status: 'borrowed').exists?)
+        @reservation=Reservation.where(User_id: current_user.id,Books_id: @book.id,status: 'borrowed')
+       link_to 'Return', return_book_url(@book) , :method => "post"
+     end %>
+  |
+<%= link_to 'Edit', edit_book_path(@book) %>  |
+<%= link_to 'Back', books_path %>
